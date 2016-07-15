@@ -1,0 +1,28 @@
+#SiteHeader {
+  position: fixed;
+  top: 0;
+  height: 20px;
+  color: white;
+  background-color: #006699;
+  width: 100%;
+  left: 0;
+  padding: 5px;
+}
+
+#SiteHeader a:link,
+#SiteHeader a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+#SiteHeader a:hover {
+  text-decoration: underline;
+}
+
+#SiteHeader span {
+  padding-right: 32px;
+}
+
+#MainContent {
+  margin-top: 40px;
+}

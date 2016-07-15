@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title>Chuck's Web Server</title>
+  <head>
+    <link rel="stylesheet" href="/SiteWide.css">
+    <!-- Begin Meta Section -->
+    <meta name="author" content="Charles Vance Terry">
+	<meta name="description" content="Chuck's Web Server">
+	<meta name="keywords" content="JCPM, tda0909, Charles Vance Terry">
+    <!-- Begin Style Section -->
+	<style type="text/css">
+      <!-- Page Styles -->
+    </style>
+	<script id="Add_Cookies" type="text/javascript">
+	  function addCookieOne() {
+      	document.cookie = "This_Is_Cookie_One=Hi_There;"
+      }
+      function addCookieTwo() {
+      	document.cookie = "Name=Value;"
+      }
+      function addCookieThree() {
+      	document.cookie = "Zach_Sisk=Full_O_Puns;"
+      }
+	</script>
+	<script id="Show_Cookies" type="text/javascript">
+      function showCookies() {
+      	alert(document.cookie)
+      }
+	</script>
+	<!-- The Following Script is Advanced -->
+	<script id="Clear_This_Webpages_Cookies" type="text/javascript">
+	  function clearCookies() {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i];
+          var eqPos = cookie.indexOf("=");
+          var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+          document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+      }
+	</script>
+  </head>
+  <body>
+    <div id="SiteHeader">
+	  <span><b>- Chuck's Web Server -</b></span>
+      <a href="/">Home</a>
+    </div>
+	<div id="MainContent">
+	<button class="plus-cookie" onclick="addCookieOne()">
+	  Add Cookie One
+	</button>
+    <button class="plus-cookie" onclick="addCookieTwo()">
+	  Add Cookie Two
+	</button>
+    <button class="plus-cookie" onclick="addCookieThree()">
+	  Add Cookie Three
+	</button>
+	<hr />
+    <button class="show-cookie" onclick="showCookies()">
+	  Show Cookies
+	</button>
+	<button class="clear-cookie" onclick="clearCookies()">
+	  Clear Cookies
+	</button>
+	<hr />
+	<div>
+	  <p>
+	  <h2>Code to Add Cookies</h2>
+	  function addCookieOne() {<br />
+      &nbsp;&nbsp;document.cookie = "This_Is_Cookie_One=Hi_There;"<br />
+      }<br />
+      function addCookieTwo() {<br />
+      &nbsp;&nbsp;document.cookie = "Name=Value;"<br />
+      }<br />
+      function addCookieThree() {<br />
+      &nbsp;&nbsp;document.cookie = "Zach_Sisk=Full_O_Puns;"<br />
+      }<br />
+      <h2>Code to Show Cookies</h2>
+      function showCookies() {<br />
+      &nbsp;&nbsp;alert(document.cookie)<br />
+      }<br />
+      <h2>Code to Clear Cookies</h2>
+	  function clearCookies() {<br />
+      &nbsp;&nbsp;var cookies = document.cookie.split(";");<br />
+      &nbsp;&nbsp;for (var i = 0; i < cookies.length; i++) {<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;var cookie = cookies[i];<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;var eqPos = cookie.indexOf("=");<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";<br />
+      &nbsp;&nbsp;}<br />
+      }
+	  </p>
+	</div>
+	</div>
+	<div id="SiteFooter">
+      <!-- Website Footer -->
+    </div>
+	<!-- Body Script Section -->
+    <script type="text/javascript">
+      <!-- Inline Scripts Executed after Document is Loaded -->
+    </script>
+  </body>
+</html>

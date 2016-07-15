@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16">
+    <style type="text/css">
+      #WindowBackground {
+        width: 100%;
+        height: 1000px;
+        background-color: grey;
+      }
+      
+      #CoordsDisplay {
+        background-color: rgba(255, 255, 255, 0.22);
+        position: fixed;
+        padding: 3px;
+        margin: 6px;
+        font-weight: bold;
+        border: 1px solid #FFF;
+      }
+      
+      #SavedCoords {
+        position: fixed;
+        padding: 3px;
+        margin: 6px;
+        margin-top: 36px;
+        width: 155px;
+      }
+      
+      #SavedCoords > p {
+        font-style: oblique;
+        margin: 4px 0 0 7px;
+        display: block;
+      }
+      
+      .Pointer {
+        cursor: pointer;
+      }
+      
+      .GroupHeader {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      
+      .XCoord:before {
+        content: 'x';
+        color: #CC0000;
+      }
+      
+      .YCoord:before {
+        content: 'y';
+        color: #006600;
+      }
+      
+      abbr {
+        border-bottom: 1px dashed #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="WindowBackground">
+      <div id="CoordsDisplay"></div>
+      <div id="SavedCoords">
+        <div class="GroupHeader">
+          <span class="Pointer Expanded" id="SavedCoordsToggle">&#8681;</span> 
+          Saved <abbr title="Coordinates">Coords</abbr>:
+        </div>
+        <p id="SavedCoordsData"></p>
+      </div>
+    </div>
+    <script type="text/javascript">
+      //Get Coordinates relative to the document body
+      document.getElementsByTagName("body")[0].onmousemove = function()
+      {mouseMove(event)};
+      function mouseMove(e) {
+        var x = e.clientX;
+        var y = e.clientY;
+        var coor = "Coordinates: (" + x + "," + y + ")";
+        document.getElementById("CoordsDisplay").innerHTML = coor;
+      }
+    </script>
+    <script type="text/javascript">
+      //Save Clicked Coordinates
+      document.getElementById("WindowBackground").onclick = function()
+      {mouseClick(event)};
+      function mouseClick(e) {
+        var x = e.clientX;
+        var y = e.clientY;
+        var coor = "<span class=\"XCoord\">" + x + "</span>&nbsp;&nbsp;&nbsp;<span class=\"YCoord\">" + y + "</span><br/>";
+        if (x < 50) {
+          console.log("Coordinate's x value was < 50 (" + x + ") therefor it was not saved");
+        } else {
+          document.getElementById("SavedCoordsData").innerHTML += coor;
+        }
+      }
+    </script>
+    <script type="text/javascript">
+      //Toggle Saved Coordinates
+      document.getElementById("SavedCoordsToggle").onclick = function()
+      {toggleSavedCoords(event)};
+      function toggleSavedCoords(e) {
+        var state = document.getElementById("SavedCoordsToggle").classList.contains("Expanded");
+        switch(state) {
+          case true:
+            document.getElementById("SavedCoordsData").style.display = "none";
+            document.getElementById("SavedCoordsToggle").classList.remove("Expanded");
+            document.getElementById("SavedCoordsToggle").classList.add("Collapsed");
+            document.getElementById("SavedCoordsToggle").innerHTML = "&#8680;";
+            break;
+          case false:
+            document.getElementById("SavedCoordsData").style.display = "block";
+            document.getElementById("SavedCoordsToggle").classList.remove("Collapsed");
+            document.getElementById("SavedCoordsToggle").classList.add("Expanded");
+            document.getElementById("SavedCoordsToggle").innerHTML = "&#8681;";
+            break;
+          default:
+            window.toggleSavedCoordsError = 'Expected display "block" or "none" but instead found:  ' + state;
+        }
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
