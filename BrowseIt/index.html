@@ -2,11 +2,61 @@
   <head>
     <script src="https://rawgit.com/ded/bowser/master/src/bowser.js"></script>
     <script src="https://rawgit.com/tda0909/javascript/master/BrowseIt/Source.js"></script>
+    <script>
+      function populateBrowserDetails() {
+        getBrowserInfo();
+        setTimeout(populatePage, 3000);
+      }
+      
+      function populatePage() {
+        var out = "";
+        var nl = (function(){out += "<br />"});
+        out += ("<h1>Information</h1>");
+        out += ("Browser: " + browseIt.browser + "   Browser Version: " + browseIt.version);
+        nl();
+        out += ("Device Type: " + browseIt.deviceType + " (" + browseIt.procCores + " Core CPU)   OS: " + browseIt.OS + "   OS Version: " + browseIt.OSVersion);
+        nl();
+        out += ("Vibration: " + browseIt.vibrationEnabled +  + "   Touch Points: " + browseIt.touchPoints);
+        nl();
+        nl();
+        out += ("<h2>Browser Details</h2>");
+        nl();
+        out += ("Render Engine: " + browseIt.renderEngine + "Browser Capability: " + browseIt.capability);
+        nl();
+        out += ("Cookies Enabled: " + browseIt.cookiesEnabled + "   Java Enabled: " + browseIt.javaEnabled);
+        nl();
+        out += ("Do Not Track: " + browseIt.doNotTrack + "   Online: " + browseIt.online);
+        nl();
+        out += ("Primary Language: " + browseIt.language + "   Supported Languages: " +  browseIt.supportedLanguages);
+        nl();
+        nl();
+        out += ("<h2>Battery Details</h2>");
+        nl();
+        out += ("Battery Level: " + browseIt.battery.level + "%   Charging: " + browseIt.battery.charging);
+        nl();
+        out += ("Charging Time: " + browseIt.battery.chargingTime + "   Discharging Time: " + browseIt.battery.dischargingTime);
+        nl();
+        nl();
+        out += ("<h2>Screen Details</h2>");
+        nl();
+        out += ("Resolution: " + browseIt.screen.width + "x" + browseIt.screen.height + "   Available Resolution: " + browseIt.screen.availWidth + "x" + browseIt.screen.availHeight);
+        nl();
+        out += ("Orientation: " + browseIt.screen.orientation + "   Color Depth: " + browseIt.screen.colorDepth);
+        
+        var t = document.createTextNode(out);
+        var d = document.getElementById("Data-Out");
+        d.appendChild(t);
+        
+        return true;
+      }
+    </script>
   </head>
   <body>
-    <div class="Data-Out">
+    <div>
       <p>Click the Button below to view Information about your Browser.</p>
-      <button onClick="browseItOut()">Alert Browser Details</button>
+      <button onClick="populateBrowserDetails()">Click Me</button>
+    </div>
+    <div id="Data-Out">
     </div>
   </body>
 </html>
