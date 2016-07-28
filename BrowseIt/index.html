@@ -43,9 +43,10 @@
         nl();
         out += ("Orientation: " + browseIt.screen.orientation + "   Color Depth: " + browseIt.screen.colorDepth);
         
-        var t = document.createTextNode(out);
+        //var t = document.createElement(div);
         var d = document.getElementById("Data-Out");
-        d.appendChild(t);
+        d.innerHTML = out;
+        //d.appendChild(out);
         
         return true;
       }
